@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*Define model*@
+@model IEnumerable<Actor>
+@*Define the view data*@
+@{
+    ViewData["Title"] = "List of Actors";
+}
+@*Write code*@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table>
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model=>model.ProfilePictureURL)</th>
+                    <th>@Html.DisplayNameFor(model=>model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model=>model.Bio)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <img class="rounded-circle" style="max-width:150px"
+                            src="@item.ProfilePictureURL"/>
+                        </td>
+                        <td class="align-middle">@Html.DisplayFor(modelItem=>item.FullName)</td>
+                        <td class="align-middle">@Html.DisplayFor(modelItem=>item.Bio)</td>
+                        <td class="align-middle">
+                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i><i>Edit</i></a>
+                            <a class="btn btn-outline-info"><i class="bi bi-eye"></i><i>Details</i></a>
+                            <a class="btn btn-danger"><i class="bi bi-trash"></i><i>Delete</i></a>
+                        </td>
+                       
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
